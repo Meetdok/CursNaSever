@@ -1,0 +1,49 @@
+﻿<Window x:Class="Cursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cursach"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800" Icon="icons8-информация-64.png">
+    <Window.Background>
+        <ImageBrush ImageSource="maxresdefault.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Background="#FF1785E0" Foreground="#FFF7F6F6">
+            <MenuItem Header="Настройки" Foreground="#FF080303" Cursor="Help">
+                <MenuItem Header="Тест SQL" Command="{Binding Connection}" Cursor="Hand"/>
+            </MenuItem>
+
+            <MenuItem Header="Сотрудники" Foreground="#FF080303" Cursor="Help">
+                <MenuItem Header="Создание сотрудника" Foreground="#FF080303" Cursor="Hand" Command="{Binding Employ}"/>
+                <MenuItem Header="Создание должности" Foreground="#FF080303" Cursor="Hand" Command="{Binding Post}"/>
+                <MenuItem Header="Создание отдела" Foreground="#FF080303" Cursor="Hand" Command="{Binding Department}"/>
+                <Menu>
+                    <MenuItem Header="Списки" Foreground="#FF080303" Cursor="Help" Background="#FF1785E0">
+                        <MenuItem Header="Сотрудники" Foreground="#FF080303" Cursor="Hand" Command="{Binding ViewEmploy}"/>
+                        <MenuItem Header="Должности" Foreground="#FF080303" Cursor="Hand" Command="{Binding ViewPost}"/>
+                        <MenuItem Header="Отделы" Foreground="#FF080303" Cursor="Hand" Command="{Binding ViewDepartment}"/>
+                    </MenuItem>
+                </Menu>
+            </MenuItem>
+
+            <MenuItem Header="Пользователи" Foreground="#FF080303" Cursor="Help">
+                <MenuItem Header="Регистрация" Foreground="#FF080303" Cursor="Hand" Command="{Binding User}"/>
+                <MenuItem Header="Список" Foreground="#FF080303" Cursor="Hand" Command="{Binding ViewUser}"/>
+            </MenuItem>
+
+
+            <MenuItem Header="Заявки" Foreground="#FF080303" Cursor="Help">
+                <MenuItem Header="Оформление" Foreground="#FF080303" Cursor="Hand" Command="{Binding Zayavka}"/>
+                <MenuItem Header="Список заявок" Foreground="#FF080303" Cursor="Hand" Command="{Binding ViewZayavka}"/>
+            </MenuItem>
+        </Menu>
+        <Frame Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

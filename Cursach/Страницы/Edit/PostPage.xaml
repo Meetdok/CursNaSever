@@ -1,0 +1,26 @@
+﻿<Page x:Class="Cursach.Страницы.Edit.PostPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Страницы.Edit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PostPage">
+    <StackPanel Background="#FFF3EBEB">
+        <StackPanel DataContext="{Binding EditPost}">
+            <Label Content="Название"/>
+            <TextBox Text="{Binding Name}" Cursor="Pen"/>
+        </StackPanel>
+        <Label Content="Отдел"/>
+        <ComboBox ItemsSource="{Binding Deps}"
+                  SelectedItem="{Binding PostDep}"
+                  DisplayMemberPath="Title" Cursor="Help"/>
+        <Button  Command="{Binding SavePost}" Margin="348,0,283,0" Height="156" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="download.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="  Сохранить и закрыть" Margin="348,0,283,0" FontWeight="Bold" FontSize="14"/>
+    </StackPanel>
+</Page>

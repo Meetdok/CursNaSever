@@ -1,0 +1,30 @@
+﻿<Page x:Class="Cursach.Страницы.View.EmployView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Страницы.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployView">
+    <Grid Background="#FF0B0EF0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="Должность:" Background="#FF1485E2"/>
+            <ComboBox ItemsSource="{Binding Posts}" SelectedItem="{Binding SelectedPost}" DisplayMemberPath="Name" Width="200"/>
+        </StackPanel>
+        <ListView Grid.Row="1" ItemsSource="{Binding EmploysByPost}" SelectedItem="{Binding SelectedEmploy}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Ochestvo}"/>
+                    <GridViewColumn Header="Адресс" DisplayMemberBinding="{Binding Adress}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
